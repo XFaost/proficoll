@@ -1,0 +1,18 @@
+{% extends 'admin/base.html' %}
+
+{% load static %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+<!--Disable dark mode-->
+{% block dark-mode-vars %}{% endblock %}
+
+{% block branding %}
+    <h1 id="site-name">
+        <a href="{% url 'admin:index' %}">
+            <img src="{% static 'core/media/logo/logo_with_white_text.svg' %}" height="35px">
+        </a>
+    </h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
