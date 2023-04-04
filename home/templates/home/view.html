@@ -1,0 +1,116 @@
+{% extends "core/index.html" %}
+{% load static %}
+
+{% block content %}
+<section class="welcome">
+    <div class="container">
+        <div class="welcome__content">
+            <div class="welcome__text">
+                <h1>Багаторічний досвід та висококваліфікована команда</h1>
+                <p>ТОВ "ПРОФІКОЛ" заснована в 2018р. провідними експертами ринку управління проблемних активів. Компанія успішно розвиває бізнес та сприяє активному зменшенню розміру непрацюючих кредитних портфелів як державних та комерційних банків, так і мікро фінансових організацій. ТОВ "ПРОФІКОЛ" – одна з ключових компаній на ринку, що здійснює систематичні купівлі та обслуговування портфелів NPL, що мають забезпечення (іпотеки, застави, транспортні засоби, спец обладнання, тощо).</p>
+            </div>
+            <img src="{% static 'home/media/image_1.jpg' %}" alt="фото 1" class="image-style" width="651" height="524">
+        </div>
+    </div>
+</section>
+
+<section class="about-as" id="about-as">
+    <div class="container">
+        <div class="about-as__content">
+            <img src="{% static 'home/media/image_2.jpg' %}" alt="фото 2" class="image-style" width="650" height="433">
+            <div class="about-as__text">
+                <div class="subtitle">
+                    <div class="subtitle__content">
+                        <h2 class="subtitle__text">Про нас</h2>
+                        <hr>
+                    </div>                
+                </div>
+                <p>ТОВ "ДІДЖИ ФІНАНС" заснована в 2018 р. провідними експертами ринку управління проблемних активів. Компанія успішно розвиває бізнес та сприяє активному зменшенню розміру непрацюючих кредитних портфелів як державних та комерційних банків, так і мікро фінансових організацій.<br>ТОВ "ДІДЖИ ФІНАНС" – одна з ключових компаній на ринку, що здійснює систематичні купівлі та обслуговування портфелів NPL, що мають забезпечення (іпотеки, застави, транспортні засоби, спец обладнання, тощо), а також кредити/позики без додаткових забезпечень.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="partners" id="partners">
+    <div class="container">
+        <div class="partners__content">
+            <div class="subtitle">
+                <div class="subtitle__content">
+                    <h2 class="subtitle__text">Наші Партнери</h2>
+                    <hr>
+                </div>                
+            </div>
+            
+            <ul class="list">
+                {% for partner in partners %}
+                    <li>
+                        <a href="{{ partner.url }}">
+                            <img src="{{ partner.image.url }}" alt="{{ partner.name }}">
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+</section>
+<section class="docs" id="docs">
+    <div class="container">
+        <div class="docs__content">
+            <div class="subtitle">
+                <div class="subtitle__content">
+                    <h2 class="subtitle__text">Документи</h2>
+                    <hr>
+                </div>                
+            </div>
+            <ul>
+                {% for document in documents %}
+                    <li>
+                        <p>{{ document.name }}</p>
+                        <a class="btn btn-primary ml-2" href="{{ document.file.url }}">Завантажити</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="contacts" id="contacts">
+    <div class="container">
+        <div class="contacts__content">
+            <div class="subtitle">
+                <div class="subtitle__content">
+                    <h2 class="subtitle__text">Контактні дані</h2>
+                    <hr>
+                </div>                
+            </div>
+            <div class="contacts__row">
+                <div class="contacts__col">
+                    <div class="contacts__block">
+                        <span>Юридична адреса:</span>
+                        <p>{{ contacts.legal_address }}</p>
+                    </div>
+                    <div class="contacts__block">
+                        <span>ГРАФІК РОБОТИ - Контакт-центр:</span>
+                        <p>{{ contacts.contact_center_wh }}</p>
+                    </div>
+                    <div class="contacts__block">
+                        <span>ГРАФІК РОБОТИ - Адміністрація:</span>
+                        <p>{{ contacts.administration_wh }}</p>
+                    </div>
+                </div>
+                <div class="contacts__col">
+                    <div class="contacts__block">
+                        <span>Телефони для звернень:</span>
+                        <p>{{ contacts.phone_numbers|linebreaks }}</p>
+                    </div>
+                    <div class="contacts__block">
+                        <span>Email:</span>
+                        <p>{{ contacts.email }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+{% endblock %}
