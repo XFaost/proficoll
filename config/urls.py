@@ -1,6 +1,6 @@
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.views.generic import RedirectView
 
 from config import settings
@@ -10,6 +10,7 @@ favicon_view = RedirectView.as_view(url='/static/core/media/logo/favicon.ico', p
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('favicon.ico', favicon_view),
+    path('', include('core.urls')),
 ]
 
 if settings.base.DEBUG:

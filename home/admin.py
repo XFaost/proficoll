@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.html import format_html
 
 from core.utils.singleton.singleton_model_admin import SingletonModelAdmin
-from home.models import WelcomeBlockSettings, AboutUsBlockSettings, Partner, ContactsBlockSettings
+from home.models import WelcomeBlockSettings, AboutUsBlockSettings, Partner, ContactsBlockSettings, Document
 
 
 @admin.register(WelcomeBlockSettings)
@@ -25,6 +25,11 @@ class PartnerAdmin(admin.ModelAdmin):
 
     image_view.__name__ = 'Зображення'
     image_view.allow_tags = True
+
+
+@admin.register(Document)
+class PartnerAdmin(admin.ModelAdmin):
+    list_display = ('__str__',)
 
 
 @admin.register(ContactsBlockSettings)

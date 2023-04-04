@@ -41,7 +41,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=256, verbose_name='Назва')),
-                ('file', models.FileField(upload_to='documents', verbose_name='Файл')),
+                ('file', models.FileField(upload_to='documents.py', verbose_name='Файл')),
             ],
             options={
                 'verbose_name': 'Документ',
