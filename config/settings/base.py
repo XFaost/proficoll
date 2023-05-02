@@ -36,6 +36,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+DEFAULT_FILE_STORAGE = 'core.files.storage.UUIDFileSystemStorage'
+
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
