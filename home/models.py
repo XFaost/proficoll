@@ -53,7 +53,7 @@ class Partner(models.Model):
 
 class Document(models.Model):
     name = models.CharField(max_length=256, verbose_name='Назва')
-    file = models.FileField(upload_to='documents.py', verbose_name='Файл')
+    file = models.FileField(upload_to='documents', verbose_name='Файл')
 
     def __str__(self):
         return self.name
